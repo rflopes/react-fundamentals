@@ -5,27 +5,23 @@
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
-
-  <!-- 💣 remove this line
   <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
-  💣 remove this line -->
 
-  <script type="module">
-    // 🐨 on the script tag above, change `type="module"`
-    // to `type="text/babel"` so babel will compile this code for the browser to run.
+  <script type="text/babel">
+    // 1. pure JSX
+    // const element = <div className="container">Hello World from JSX</div>;
 
-    // 🐨 re-implement this using JSX!
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
+    // 2. JSX with interpolation
+    // const className = 'container';
+    // const children = 'Hello World from JSX with interpolation';
+    // const element = <div className={className}>{children}</div>;
 
-    // 💰 there are a few subtle differences between JSX and HTML. One such
-    // difference is how you apply a class to an element in JSX is by using
-    // `className` rather than `class`!
-    // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
-    // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
+    // 3. prop spreading
+    const className = 'container';
+    const children = 'Hello World from JSX with props spreading';
+    const props = {className, children};
+    const element = <div {...props} />;
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
